@@ -1,0 +1,16 @@
+pipeline {
+    agent {label 'node-1'}
+    stages {
+        stage('pull git') {
+            steps {
+                git 'https://github.com/nilammadankar/tomcat.git'
+                }
+        }
+        stage('Build') {
+            steps {
+                 sh 'mvn clean package'
+            }
+        }
+        
+        }
+        }
